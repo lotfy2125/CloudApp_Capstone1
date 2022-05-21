@@ -1,0 +1,13 @@
+  applications:
+  - name: djangoapp
+    routes:
+      - route: sayed.us-south.cf.appdomain.cloud
+    memory: 128M
+    buildpack: python_buildpack
+  - name: djangoapp-nginx
+    routes:
+      - route: sayed.us-south.cf.appdomain.cloud/static
+    memory: 128M
+    buildpack: staticfile_buildpack
+
+     
