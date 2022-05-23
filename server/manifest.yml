@@ -1,7 +1,7 @@
   applications:
   - name: djangoapp
     routes:
-      - route: sayed.us-south.cf.appdomain.cloud/djangoapp
+      - route: sayed.us-south.cf.appdomain.cloud/
     memory: 128M
     buildpack: python_buildpack
   - name: djangoapp-nginx
