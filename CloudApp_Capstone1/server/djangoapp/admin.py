@@ -11,7 +11,7 @@ class CarModelInline(admin.StackedInline):
 # CarModelAdmin class
 class CarModelAdmin(admin.ModelAdmin):
      model = CarModel
-     list_display = ( 'name','type','year')
+     list_display = ( 'name','dealer_id','type','year')
   
 # CarMakeAdmin class with CarModelInline
 class CarMakeAdmin(admin.ModelAdmin):
@@ -25,5 +25,6 @@ class CarMakeAdmin(admin.ModelAdmin):
 
 admin.site.register(CarMake , CarMakeAdmin)
 admin.site.register(CarModel , CarModelAdmin )
+
 admin.site.register(CarDealer)
 admin.site.register(DealerReview)

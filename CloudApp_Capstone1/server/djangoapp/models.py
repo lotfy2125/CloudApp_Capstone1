@@ -71,7 +71,7 @@ class CarModel(models.Model):
 
     make = models.ForeignKey(CarMake , default=1 , on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=100)
-    dealer_id = models.ForeignKey(CarDealer , default=1, on_delete=models.DO_NOTHING)
+    dealer_id =models.IntegerField()
     type = models.CharField( max_length=100, choices= CHOICES )
     year = models.DateField()
 
@@ -83,6 +83,55 @@ class CarModel(models.Model):
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
+class CarDealer(models.Model):
+    def __init__(self , id , city , state , st , address , zip , lat , long , short_name , full_name ) :
+          self.id = id
+          self.city = city
+          self.state = state
+          self.st = st
+          self.address = address
+          self.zip = zip
+          self.lat = lat
+          self.long = long
+          self.short_name = short_name
+          self.full_name = full_name
+          
+          return self.id + " " + self.full_name
+
+    def get_city(self):
+        return self.city
+    def get_state(self):
+        return self.state
+    def get_st(self):
+        return self.st    
+    def get_zip(self):
+        return self.zip
+    def get_full_name(self):
+        return self.full_name
 
 
 # <HINT> Create a plain Python class `DealerReview` to hold review data
+class DealerReview(models.Model):
+    def __init__(self , id , name , dealership , review , purchase , purchase_date , car_make , car_model , car_year  ) :           
+        self.id = id
+        self.name = name 
+        self.dealership = dealership
+        self.review = review
+        self.purchase = purchase
+        self.purchase_date = purchase_date
+        self.car_make = car_make
+        self.car_model = car_model
+        self.car_year = car_year
+        
+        return self.id + " " + self.name + " " + self.review
+
+    def get_name(self):
+        return self.name
+    def get_review(self):
+        return self.review
+    def get_car_make(self):
+        return self.car_make   
+    def get_car_model(self):
+        return self.car_model
+    def get_car_year(self):
+        return self.car_year
